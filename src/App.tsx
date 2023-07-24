@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Counter } from "./Counter";
-import { IncrementCounterButton } from "./IncrementCounterButton";
+import Counter from "./Counter";
+import IncrementCounterButton from "./IncrementCounterButton";
 import { inject, observer, IWrappedComponent } from "mobx-react";
 import { CounterStore } from "./CounterStore";
 import CounterArrow from "./CounterArrow";

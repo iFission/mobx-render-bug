@@ -9,7 +9,7 @@ interface Props extends StoreProps { }
 
 @inject("counterStore")
 @observer
-export class IncrementCounterButton extends Component<Props, any> {
+class IncrementCounterButton extends Component<Props, any> {
   static defaultProps = {} as StoreProps;
 
   render() {
@@ -21,5 +21,6 @@ export class IncrementCounterButton extends Component<Props, any> {
     );
   }
 }
+
 export default IncrementCounterButton as typeof IncrementCounterButton &
   IWrappedComponent<Props>;

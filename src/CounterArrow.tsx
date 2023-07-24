@@ -8,7 +8,7 @@ type StoreProps = {
 interface Props extends StoreProps { }
 @inject("counterStore")
 @observer
-export class Counter extends Component<Props, any> {
+class Counter extends Component<Props, any> {
   static defaultProps = {} as StoreProps;
 
   render = () => {
@@ -23,4 +23,5 @@ export class Counter extends Component<Props, any> {
     );
   };
 }
+
 export default Counter as typeof Counter & IWrappedComponent<Props>;
