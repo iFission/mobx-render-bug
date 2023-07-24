@@ -2,7 +2,11 @@ import { Provider } from "mobx-react";
 import React, { Component } from "react";
 import { counterStore } from "./CounterStore";
 
-class CounterProvider extends Component {
+type Props = {
+  children: React.ReactNode;
+};
+
+class CounterProvider extends Component<Props> {
   render() {
     console.log("test");
     return (

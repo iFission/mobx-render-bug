@@ -1,12 +1,14 @@
 import React from "react";
+import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import ReactDOM from "react-dom";
 import CounterProvider from "./CounterProvider";
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement,
+);
+root.render(
   <CounterProvider>
     <App />
   </CounterProvider>,
-  document.getElementById("root") as HTMLElement,
 );
