@@ -11,7 +11,7 @@ interface Props extends StoreProps { }
 class Counter extends Component<Props, any> {
   static defaultProps = {} as StoreProps;
 
-  render = () => {
+  render() {
     const { counterStore } = this.props;
     return (
       <>
@@ -21,7 +21,7 @@ class Counter extends Component<Props, any> {
         <div>Counter from CounterArrow: {counterStore.counter}</div>
       </>
     );
-  };
+  }
 }
 
 export default Counter as typeof Counter & IWrappedComponent<Props>;
