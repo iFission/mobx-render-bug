@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Counter } from "./Counter";
+import { IncrementCounterButton } from "./IncrementCounterButton";
+import { inject, observer, IWrappedComponent } from "mobx-react";
+import { CounterStore } from "./CounterStore";
+import CounterArrow from "./CounterArrow";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+type StoreProps = {
+  counterStore: CounterStore;
+};
+interface Props extends StoreProps { }
+
+@inject("counterStore")
+@observer
+class App extends Component<Props, any> {
+  static defaultProps = {} as StoreProps;
+
+  render() {
+    return (
+      <>
+        <button onClick={this.props.counterStore.incrementCounter}>
+          IncrementCounterButton from App
+        </button>
+        <br />
+        Counter from App: {this.props.counterStore.counter}
+        <br />
+        <br />
+        <IncrementCounterButton />
+        <Counter />
+        <br />
+        <CounterArrow />
+      </>
+    );
+  }
 }
 
-export default App;
+export default App as typeof App & IWrappedComponent<Props>;
